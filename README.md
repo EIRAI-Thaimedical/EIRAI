@@ -24,34 +24,24 @@ pip install
 <summary>Evaluation Med QA</summary>
 
   ```
-  CUDA_VISIBLE_DEVICES=0 python src/evaluate.py \
-    --model_name {MODEL_PATH} \
-    --data_path eval/test.json \
-    --output_path {OUTPUT_PATH}
+  lm_eval --model vllm \
+    --model_args pretrained=EIRTHAIMED/Llama-3.1-EIRAI-8B,tensor_parallel_size=1,dtype=auto,gpu_memory_utilization=0.8,data_parallel_size=1,trust_remote_code=True,max_model_len=2048 \
+    --tasks pubmedqa,medqa_4options,medmcqa,mmlu_clinical_knowledge,mmlu_medical_genetics,mmlu_anatomy,mmlu_professional_medicine,mmlu_college_biology,mmlu_college_medicine \
+    --batch_size auto \
+    --device cuda \
+    --output_path ./results \
+    --log_samples 
   ```
 
-- Run GPT-4 for evaluation
- 
-  ```
-  python eval/gpt4_evaluate.py --input {INPUT_PATH} --output {OUTPUT_PATH} 
-  ```
 </details>
 
 <details>
 <summary>Evaluation BLEU Medical Translate English to Thai </summary>
 
   ```
-  CUDA_VISIBLE_DEVICES=0 python src/evaluate.py \
-    --model_name {MODEL_PATH} \
-    --data_path eval/test.json \
-    --output_path {OUTPUT_PATH}
+  python src/BLEU.py --model EIRTHAIMED/Llama-3.1-EIRAI-8B
   ```
 
-- Run GPT-4 for evaluation
- 
-  ```
-  python eval/gpt4_evaluate.py --input {INPUT_PATH} --output {OUTPUT_PATH} 
-  ```
 </details>
 
 <details>
