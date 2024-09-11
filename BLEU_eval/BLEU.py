@@ -148,7 +148,7 @@ def main(model_name: str, eval_dataset: str):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Evaluate a pre-trained model on a dataset and compute BLEU score.")
     parser.add_argument("--model", type=str, required=True, help="The model to load and evaluate.")
-    parser.add_argument("--eval-dataset", type=str, required=True, help="Path to the evaluation dataset (JSON format).")
+    parser.add_argument("--eval-dataset", type=str, default='translate_test.json', help="Path to the evaluation dataset (JSON format).")
     args = parser.parse_args()
 
     main(model_name=args.model, eval_dataset=args.eval_dataset)
