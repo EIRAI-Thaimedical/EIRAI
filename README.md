@@ -21,7 +21,58 @@ pip install
 </details>
 
 <details>
-<summary>Evaluation</summary>
+<summary>Evaluation Med QA</summary>
+
+  ```
+  CUDA_VISIBLE_DEVICES=0 python src/evaluate.py \
+    --model_name {MODEL_PATH} \
+    --data_path eval/test.json \
+    --output_path {OUTPUT_PATH}
+  ```
+
+- Run GPT-4 for evaluation
+ 
+  ```
+  python eval/gpt4_evaluate.py --input {INPUT_PATH} --output {OUTPUT_PATH} 
+  ```
+</details>
+
+<details>
+<summary>Evaluation BLEU Medical Translate English to Thai </summary>
+
+  ```
+  CUDA_VISIBLE_DEVICES=0 python src/evaluate.py \
+    --model_name {MODEL_PATH} \
+    --data_path eval/test.json \
+    --output_path {OUTPUT_PATH}
+  ```
+
+- Run GPT-4 for evaluation
+ 
+  ```
+  python eval/gpt4_evaluate.py --input {INPUT_PATH} --output {OUTPUT_PATH} 
+  ```
+</details>
+
+<details>
+<summary>Evaluation Seacrowd </summary>
+
+  ```
+  CUDA_VISIBLE_DEVICES=0 python src/evaluate.py \
+    --model_name {MODEL_PATH} \
+    --data_path eval/test.json \
+    --output_path {OUTPUT_PATH}
+  ```
+
+- Run GPT-4 for evaluation
+ 
+  ```
+  python eval/gpt4_evaluate.py --input {INPUT_PATH} --output {OUTPUT_PATH} 
+  ```
+</details>
+
+<details>
+<summary>Evaluation EHR Task </summary>
 
   ```
   CUDA_VISIBLE_DEVICES=0 python src/evaluate.py \
