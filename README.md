@@ -7,7 +7,7 @@ We present **EIR** Large Language Models (LLMs) to enhance Thailand’s healthca
 Advantages of LLMs include their ability to perform Zero-Shot Learning and techniques like Chain-of-Thought (CoT), which improve decision-making and data analysis accuracy. However, the use of LLMs in healthcare raises privacy concerns, especially when dealing with sensitive patient information. In Thailand, challenges remain in developing NLP technology that supports the Thai language due to its complex grammar and limited high-quality resources. The research introduces the Eir AI Thai Medical LLM 8B model, adapted from LLaMA 3.1 Instruct-8B, which has been fine-tuned for Thai medical language tasks to improve precision medicine in Thailand
 
 
-<details>
+
 <summary>Environment Install</summary>
 
 ```
@@ -18,9 +18,9 @@ pip install
 pip install 
 ```
 
-</details>
 
-<details>
+
+
 <summary>Evaluation Med QA</summary>
 
   ```
@@ -33,27 +33,21 @@ pip install
     --log_samples 
   ```
 
-</details>
 
-<details>
 <summary>Evaluation BLEU Medical Translate English to Thai </summary>
 
   ```
   python src/BLEU.py --model EIRTHAIMED/Llama-3.1-EIRAI-8B
   ```
 
-</details>
 
-<details>
 <summary>Evaluation Seacrowd </summary>
 
   ```
   MODEL_NAME=EIRTHAIMED/Llama-3.1-EIRAI-8B sh runner.sh
   ```
 
-</details>
 
-<details>
 <summary>Evaluation EHR Task </summary>
 
   ```
