@@ -1,6 +1,6 @@
 # EIR Thai Medical LLM 
 <p align='center'>
-<img src="./img/eir_logo.png"  width="400" height="400" center-align="true">
+<img src="./img/eir_logo.png"  width="128" height="84" center-align="true">
 </p>
 
 We present **EIR** Large Language Models (LLMs) to enhance Thailand’s healthcare system, particularly in areas such as population health management, clinical trials, and drug discovery. LLMs can extract valuable insights from Electronic Health Records (EHR) and digital medical data, helping to develop new treatment plans and drugs more efficiently.
