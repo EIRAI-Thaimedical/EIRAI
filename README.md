@@ -48,32 +48,22 @@ pip install
 <summary>Evaluation Seacrowd </summary>
 
   ```
-  CUDA_VISIBLE_DEVICES=0 python src/evaluate.py \
-    --model_name {MODEL_PATH} \
-    --data_path eval/test.json \
-    --output_path {OUTPUT_PATH}
+  MODEL_NAME=EIRTHAIMED/Llama-3.1-EIRAI-8B sh runner.sh
   ```
 
-- Run GPT-4 for evaluation
- 
-  ```
-  python eval/gpt4_evaluate.py --input {INPUT_PATH} --output {OUTPUT_PATH} 
-  ```
 </details>
 
 <details>
 <summary>Evaluation EHR Task </summary>
 
   ```
-  CUDA_VISIBLE_DEVICES=0 python src/evaluate.py \
-    --model_name {MODEL_PATH} \
-    --data_path eval/test.json \
-    --output_path {OUTPUT_PATH}
+  python src/prompt_gen.py --model EIRTHAIMED/Llama-3.1-EIRAI-8B
   ```
 
 - Run GPT-4 for evaluation
  
   ```
-  python eval/gpt4_evaluate.py --input {INPUT_PATH} --output {OUTPUT_PATH} 
+  export API_KEY="your_openai_api_key_here"
+
   ```
 </details>
