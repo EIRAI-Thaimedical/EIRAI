@@ -20,7 +20,8 @@ pip install
 
 
 <summary>Evaluation Med QA</summary>
-
+We used lm-evaluation-harness from EleutherAI to evaluate medical MMLU tasks.
+(To install library, see: https://github.com/EleutherAI/lm-evaluation-harness)
   ```
   lm_eval --model vllm \
     --model_args pretrained=EIRTHAIMED/Llama-3.1-EIRAI-8B,tensor_parallel_size=1,dtype=auto,gpu_memory_utilization=0.8,data_parallel_size=1,trust_remote_code=True,max_model_len=2048 \
@@ -33,29 +34,38 @@ pip install
 
 
 <summary>Evaluation BLEU Medical Translate English to Thai </summary>
-
+To evaluate BLEU Medical Translate, run this command with your model (total 30 samples) 
   ```
   python src/BLEU.py --model EIRTHAIMED/Llama-3.1-EIRAI-8B
   ```
 
 
 <summary>Evaluation Seacrowd </summary>
-
+We used seacrowd-eval from SCB-10X to evaluate Thai Exam and M3Exam 
+(To install library, see: https://github.com/scb-10x/seacrowd-eval/tree/leaderboard)
   ```
   MODEL_NAME=EIRTHAIMED/Llama-3.1-EIRAI-8B sh runner.sh
   ```
 
 
 <summary>Evaluation EHR Task </summary>
-
+To generate response from your model (for now support only llama3.0-3.1 template)
   ```
   python src/prompt_gen.py --model EIRTHAIMED/Llama-3.1-EIRAI-8B
   ```
 
 - Run GPT-4 for evaluation
+To evaluate all model in EHR_task_responses.json
  
   ```
   export API_KEY="your_openai_api_key_here"
+  python src/test.py 
 
   ```
+To evaluate specific models in EHR_task_responses.json
+  ```
+  export API_KEY="your_openai_api_key_here"
+  python src/test.py --models EIRTHAIMED/Llama-3.1-EIRAI-8B meta-llama/Meta-Llama-3.1-8B-Instruct
+  ```
+
 </details>

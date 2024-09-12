@@ -132,7 +132,6 @@ def main(model_id: str, output_file: str, reset: bool):
         output_file (str): Path to the output JSON file.
     """
 
-
     print(f"Loading model {model_id}...")
     model, tokenizer = load_model_and_tokenizer(model_id)
 
@@ -151,8 +150,8 @@ def main(model_id: str, output_file: str, reset: bool):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate responses using a pre-trained model and update the JSON file.")
     parser.add_argument("--model", type=str, required=True, help="The ID of the model to load from Hugging Face.")
-    parser.add_argument("--output-file", type=str, default='dataset/EHR_task_test.json', help="Path to the JSON file to update.")
-    parser.add_argument("--reset", type=str, default=False, help="Set to \"True\" to Reset the model responses in the JSON file.")
+    parser.add_argument("--output-file", type=str, default='dataset/EHR_task_responses.json', help="Path to the JSON file to update.")
+    parser.add_argument("--reset", type=str, default=False, help="Set to \"True\" to Reset the specific model responses in the JSON file.")
     args = parser.parse_args()
 
     main(model_id=args.model, output_file=args.output_file, reset=args.reset)
