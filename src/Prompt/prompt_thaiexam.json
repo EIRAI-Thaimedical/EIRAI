@@ -1,0 +1,46 @@
+    [ {
+        "Task": "Multiple-choice QA",
+        "Instructions": [
+        {
+            "English": "The following are multiple choice questions about «DATASET_SUBJECT». Output a single option from the options as the final answer.",
+            "Thai": "ต่อไปนี้เป็นคำถามแบบปรนัยเกี่ยวกับ «DATASET_SUBJECT» เลือกตัวเลือกเดียวจากตัวเลือกที่มีเป็นคำตอบสุดท้าย"
+        },
+        {
+            "English": "Respond to the following multiple-choice questions related to «DATASET_SUBJECT» by selecting the most appropriate option as the final answer.",
+            "Thai": "ตอบคำถามแบบปรนัยต่อไปนี้ที่เกี่ยวกับ «DATASET_SUBJECT» โดยเลือกตัวเลือกที่เหมาะสมที่สุดเป็นคำตอบสุดท้าย"
+        },
+        {
+            "English": "Evaluate the choices presented for the multiple-choice questions about «DATASET_SUBJECT» and output the most accurate response.",
+            "Thai": "ประเมินตัวเลือกที่มีสำหรับคำถามแบบปรนัยเกี่ยวกับ «DATASET_SUBJECT» และเลือกคำตอบที่ถูกต้องที่สุด"
+        },
+        {
+            "English": "Consider the choices provided for the multiple-choice questions about «DATASET_SUBJECT» and output the most accurate option as the final answer.",
+            "Thai": "พิจารณาตัวเลือกที่มีสำหรับคำถามแบบปรนัยเกี่ยวกับ «DATASET_SUBJECT» และเลือกตัวเลือกที่ถูกต้องที่สุดเป็นคำตอบสุดท้าย"
+        },
+        {
+            "English": "Consider the provided options for each multiple-choice question regarding «DATASET_SUBJECT» and output the correct answer.",
+            "Thai": "พิจารณาตัวเลือกที่มีสำหรับแต่ละคำถามแบบปรนัยเกี่ยวกับ «DATASET_SUBJECT» และเลือกคำตอบที่ถูกต้อง"
+        },
+        {
+            "English": "Your task is to select the correct response from the multiple-choice options for each question concerning «DATASET_SUBJECT».",
+            "Thai": "หน้าที่ของคุณคือการเลือกคำตอบที่ถูกต้องจากตัวเลือกแบบปรนัยสำหรับแต่ละคำถามเกี่ยวกับ «DATASET_SUBJECT»"
+        },
+        {
+            "English": "Review the given choices for each multiple-choice question related to «DATASET_SUBJECT» and output the most suitable option as the answer.",
+            "Thai": "ทบทวนตัวเลือกที่มีสำหรับแต่ละคำถามแบบปรนัยที่เกี่ยวกับ «DATASET_SUBJECT» และเลือกตัวเลือกที่เหมาะสมที่สุดเป็นคำตอบ"
+        },
+        {
+            "English": "Choose the most appropriate option from the given choices for each multiple-choice question about «DATASET_SUBJECT».",
+            "Thai": "เลือกตัวเลือกที่เหมาะสมที่สุดจากตัวเลือกที่มีสำหรับแต่ละคำถามแบบปรนัยเกี่ยวกับ «DATASET_SUBJECT»"
+        },
+        {
+            "English": "Your task is to select the most suitable option from the provided choices for each multiple-choice question concerning «DATASET_SUBJECT».",
+            "Thai": "หน้าที่ของคุณคือการเลือกตัวเลือกที่เหมาะสมที่สุดจากตัวเลือกที่มีสำหรับแต่ละคำถามแบบปรนัยเกี่ยวกับ «DATASET_SUBJECT»"
+        },
+        {
+            "English": "Review the options for each multiple-choice question about «DATASET_SUBJECT» and output the correct answer based on your knowledge.",
+            "Thai": "ทบทวนตัวเลือกที่มีสำหรับแต่ละคำถามแบบปรนัยเกี่ยวกับ «DATASET_SUBJECT» และเลือกคำตอบที่ถูกต้องตามความรู้ทางการแพทย์ของคุณ"
+        }
+        ]
+    }
+  ]
