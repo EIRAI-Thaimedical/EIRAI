@@ -3,10 +3,8 @@
 <img src="./img/eir_logo.png"  width="128" height="84" center-align="true">
 </p>
 
-We present **EIR** Large Language Models (LLMs) to enhance Thailand’s healthcare system, particularly in areas such as population health management, clinical trials, and drug discovery. LLMs can extract valuable insights from Electronic Health Records (EHR) and digital medical data, helping to develop new treatment plans and drugs more efficiently.
-Advantages of LLMs include their ability to perform Zero-Shot Learning and techniques like Chain-of-Thought (CoT), which improve decision-making and data analysis accuracy. However, the use of LLMs in healthcare raises privacy concerns, especially when dealing with sensitive patient information. In Thailand, challenges remain in developing NLP technology that supports the Thai language due to its complex grammar and limited high-quality resources. The research introduces the Eir AI Thai Medical LLM 8B model, adapted from LLaMA 3.1 Instruct-8B, which has been fine-tuned for Thai medical language tasks to improve precision medicine in Thailand
-
-
+We present EIR Large Language Models (LLMs) to enhance Thailand’s healthcare system, particularly in areas such as population health management and clinical trials. LLMs can extract valuable insights from Electronic Health Records (EHR) and digital medical data, helping to develop assistant treatment plans more efficiently.
+Advantages of LLMs include their ability to perform Zero-Shot Learning and techniques like Chain-of-Thought (CoT), which improve decision-making and data analysis accuracy. However, the use of LLMs in healthcare raises privacy concerns, especially when dealing with sensitive patient information. In Thailand, challenges remain in developing NLP technology that supports the Thai language due to its complex grammar and limited high-quality resources. The research introduces the Eir AI Thai Medical LLM 8B model, adapted from LLaMA 3.1 Instruct-8B, which has been fine-tuned for Thai medical language tasks to improve precision medicine in Thailand.
 
 <summary>Environment Install</summary>
 
