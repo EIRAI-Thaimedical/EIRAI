@@ -5,7 +5,7 @@ import torch
 from tqdm import tqdm
 from datasets import load_dataset
 from sacrebleu.metrics import BLEU
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from peft import PeftModel
 
 # Initialize BLEU metric with flores200 tokenization
@@ -20,7 +20,7 @@ Input: {}
 Answer: 
 """
 
-def load_model_and_tokenizer(model_name: str):
+def load_model_and_tokenizer(model_name: str, load_in_4bit: bool):
     """
     Load the specified model and tokenizer from Hugging Face.
 
@@ -33,12 +33,13 @@ def load_model_and_tokenizer(model_name: str):
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
-        trust_remote_code=True,
+        # trust_remote_code=True,
         torch_dtype=torch.bfloat16,
         attn_implementation="flash_attention_2",
+        quantization_config=BitsAndBytesConfig(load_in_4bit=load_in_4bit),
+        device_map="auto",
     )
     model.eval()
-    model.to(torch.device("cuda"))
     return model, tokenizer
 
 
@@ -120,7 +121,7 @@ def save_results(model_name, results, references, inputs):
     print(f"Results saved to {save_path}")
 
 
-def main(model_name: str, eval_dataset: str):
+def main(model_name: str, eval_dataset: str, load_in_4bit: bool):
     """
     Main function to load the model, perform evaluation, and save results.
 
@@ -129,7 +130,7 @@ def main(model_name: str, eval_dataset: str):
         eval_dataset (str): Path to the evaluation dataset.
     """
     print(f"Loading model: {model_name}")
-    model, tokenizer = load_model_and_tokenizer(model_name)
+    model, tokenizer = load_model_and_tokenizer(model_name, load_in_4bit)
 
     print(f"Loading evaluation dataset: {eval_dataset}")
     dataset = load_evaluation_dataset(eval_dataset)
@@ -147,6 +148,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Evaluate a pre-trained model on a dataset and compute BLEU score.")
     parser.add_argument("--model", type=str, required=True, help="The model to load and evaluate.")
     parser.add_argument("--eval-dataset", type=str, default='dataset/translate_test.json', help="Path to the evaluation dataset (JSON format).")
+    parser.add_argument("--load-in-4bit", type=str, default=False, help="load model in 4bit mode")
+    
     args = parser.parse_args()
 
-    main(model_name=args.model, eval_dataset=args.eval_dataset)
+    main(model_name=args.model, eval_dataset=args.eval_dataset, load_in_4bit=args.load_in_4bit)

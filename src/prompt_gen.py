@@ -2,7 +2,7 @@ import json
 import os
 import torch
 import argparse
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 # LLaMA prompt format
 LLAMA_PROMPT= """<|start_header_id|>user<|end_header_id|>
@@ -18,7 +18,7 @@ Input:
 Response:
 """
 
-def load_model_and_tokenizer(model_id: str):
+def load_model_and_tokenizer(model_id: str, load_in_4bit: bool):
     """
     Load the pre-trained model and tokenizer for text generation.
 
@@ -29,7 +29,11 @@ def load_model_and_tokenizer(model_id: str):
         model, tokenizer: The loaded model and tokenizer.
     """
     model = AutoModelForCausalLM.from_pretrained(
-        model_id, torch_dtype=torch.bfloat16, device_map="auto")
+        model_id, 
+        torch_dtype=torch.bfloat16, 
+        device_map="auto",
+        attn_implementation="flash_attention_2",
+        quantization_config=BitsAndBytesConfig(load_in_4bit=load_in_4bit))
     tokenizer = AutoTokenizer.from_pretrained(model_id)
     return model, tokenizer
 
@@ -123,7 +127,7 @@ def save_json(output_file: str, data: dict):
     print(f"Saved data to {output_file}")
 
 
-def main(model_id: str, output_file: str, reset: bool):
+def main(model_id: str, output_file: str, reset: bool, load_in_4bit: bool):
     """
     Main function to load the model, process the data, and generate responses.
 
@@ -133,7 +137,7 @@ def main(model_id: str, output_file: str, reset: bool):
     """
 
     print(f"Loading model {model_id}...")
-    model, tokenizer = load_model_and_tokenizer(model_id)
+    model, tokenizer = load_model_and_tokenizer(model_id, load_in_4bit)
 
     print(f"Loading and updating JSON data from {output_file}...")
     data = update_json_data(output_file, model_id, reset)
@@ -152,6 +156,8 @@ if __name__ == "__main__":
     parser.add_argument("--model", type=str, required=True, help="The ID of the model to load from Hugging Face.")
     parser.add_argument("--output-file", type=str, default='dataset/EHR_task_responses.json', help="Path to the JSON file to update.")
     parser.add_argument("--reset", type=str, default=False, help="Set to \"True\" to Reset the specific model responses in the JSON file.")
+    parser.add_argument("--load-in-4bit", type=str, default=False, help="load model in 4bit mode")
+    
     args = parser.parse_args()
 
-    main(model_id=args.model, output_file=args.output_file, reset=args.reset)
+    main(model_id=args.model, output_file=args.output_file, reset=args.reset, load_in_4bit=args.load_in_4bit)
