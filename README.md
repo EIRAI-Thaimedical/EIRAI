@@ -23,11 +23,11 @@ pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
 pip install --no-deps trl peft accelerate bitsandbytes
 ```
 
-After install, if your troch version is not 2.4.1, you can run this command
+After install, if your torch version is not 2.4.1, you can run this command
 ```
 pip3 install torch torchvision torchaudio
 ```
-(see, for more detail: https://pytorch.org/get-started/locally/)
+(for more detail, see: https://pytorch.org/get-started/locally/)
 
 We also used flash-attention2.
 (see: https://github.com/Dao-AILab/flash-attention)
